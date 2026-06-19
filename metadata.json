@@ -1,0 +1,6 @@
+{
+  "name": "ArcSahib",
+  "description": "First on-chain wallet security audit tool on Arc Testnet. Audit wallets for security risks, transactions, and token holdings.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,216 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Orbitron:wght@500;600;700;800;900&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-rajdhani: "Rajdhani", sans-serif;
+  --font-orbitron: "Orbitron", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  
+  --color-arc-bg: #000814;
+  --color-arc-surface: #001233;
+  --color-arc-primary: #0066FF;
+  --color-arc-accent: #0096FF;
+  --color-arc-success: #00FF88;
+  --color-arc-danger: #FF0000;
+  --color-arc-warning: #FFD700;
+  --color-arc-text-secondary: #A0B4CC;
+  --color-arc-border: rgba(0, 102, 255, 0.6);
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #000814 !important;
+  color: #FFFFFF;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-rajdhani);
+}
+
+.font-num {
+  font-family: var(--font-orbitron);
+}
+
+/* Glassmorphism Cards - BRIGHT, BOLD & VISIBLE */
+.arc-glass-card {
+  background: rgba(0, 102, 255, 0.15) !important;
+  backdrop-filter: blur(24px) !important;
+  -webkit-backdrop-filter: blur(24px) !important;
+  border: 2px solid rgba(0, 102, 255, 0.6) !important;
+  border-radius: 20px !important;
+  box-shadow: 0 0 20px rgba(0, 102, 255, 0.4) !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.arc-glass-card:hover {
+  border-color: rgba(0, 102, 255, 0.9) !important;
+  box-shadow: 0 0 30px rgba(0, 102, 255, 0.7) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* Glass Inputs */
+.arc-glass-input {
+  background: rgba(0, 18, 51, 0.6);
+  border: 1px solid rgba(0, 102, 255, 0.2);
+  border-radius: 12px;
+  color: #FFFFFF;
+  font-family: var(--font-rajdhani);
+  transition: all 0.2s ease-in-out;
+}
+
+.arc-glass-input:focus {
+  outline: none;
+  border-color: #0066FF;
+  box-shadow: 0 0 15px rgba(0, 102, 255, 0.3);
+}
+
+/* Glowing text effects */
+.text-glow-blue {
+  text-shadow: 0 0 12px rgba(0, 102, 255, 0.6);
+}
+
+.text-glow-green {
+  text-shadow: 0 0 12px rgba(0, 255, 136, 0.6);
+}
+
+.text-glow-yellow {
+  text-shadow: 0 0 12px rgba(255, 215, 0, 0.6);
+}
+
+.text-glow-red {
+  text-shadow: 0 0 12px rgba(255, 0, 0, 0.6);
+}
+
+/* Border corner decorations for HUD styling */
+.hud-corner-tl {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  width: 14px;
+  height: 14px;
+  border-top: 2px solid rgba(0, 102, 255, 0.5);
+  border-l: 2px solid rgba(0, 102, 255, 0.5);
+  pointer-events: none;
+}
+
+.hud-corner-tr {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 14px;
+  height: 14px;
+  border-top: 2px solid rgba(0, 102, 255, 0.5);
+  border-r: 2px solid rgba(0, 102, 255, 0.5);
+  pointer-events: none;
+}
+
+.hud-corner-bl {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  width: 14px;
+  height: 14px;
+  border-bottom: 2px solid rgba(0, 102, 255, 0.5);
+  border-l: 2px solid rgba(0, 102, 255, 0.5);
+  pointer-events: none;
+}
+
+.hud-corner-br {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  width: 14px;
+  height: 14px;
+  border-bottom: 2px solid rgba(0, 102, 255, 0.5);
+  border-r: 2px solid rgba(0, 102, 255, 0.5);
+  pointer-events: none;
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000814;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 102, 255, 0.25);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 102, 255, 0.6);
+}
+
+/* Scanline Radar Animations */
+@keyframes pulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.8; }
+}
+
+.radar-pulse-glow {
+  animation: pulse 4s infinite ease-in-out;
+}
+
+/* All other bright, bold and clearly visible specifications requested by the user */
+
+/* Accent text: #0096FF bright blue */
+.text-accent-bright, .text-\[\#0096FF\] {
+  color: #0096FF !important;
+}
+
+/* Secondary text override: #A0B4CC not too dark */
+.text-secondary-bright, .text-gray-400, .text-gray-500, .text-slate-400, .text-slate-500, .text-\[\#8892A4\] {
+  color: #A0B4CC !important;
+}
+
+/* Headings: #FFFFFF bright white */
+h1, h2, h3, h4, h5, h6, .text-white {
+  color: #FFFFFF !important;
+}
+
+/* Solid Glowing Buttons style:
+- background: #0066FF solid
+- color: #FFFFFF
+- box-shadow: 0 0 15px rgba(0,102,255,0.6)
+*/
+.btn-solid-glowing {
+  background-color: #0066FF !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 0 15px rgba(0, 102, 255, 0.6) !important;
+  transition: all 0.2s ease-in-out !important;
+  border: none !important;
+}
+.btn-solid-glowing:hover {
+  background-color: #0050cc !important;
+  box-shadow: 0 0 25px rgba(0, 102, 255, 0.9) !important;
+  opacity: 1 !important;
+}
+
+/* Brighter risk badges with extreme bold details */
+.badge-bright-safe {
+  background-color: #00FF88 !important;
+  color: #000000 !important;
+  font-weight: 800 !important;
+  border: 1.5px solid #00FF88 !important;
+  text-shadow: none !important;
+}
+.badge-bright-warning {
+  background-color: #FFD700 !important;
+  color: #000000 !important;
+  font-weight: 800 !important;
+  border: 1.5px solid #FFD700 !important;
+  text-shadow: none !important;
+}
+.badge-bright-danger {
+  background-color: #FF0000 !important;
+  color: #FFFFFF !important;
+  font-weight: 800 !important;
+  border: 1.5px solid #FF0000 !important;
+  text-shadow: none !important;
+}
