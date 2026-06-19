@@ -30,11 +30,15 @@ async function getERC20Balance(contractAddress: string, walletAddress: string): 
     const paddedWallet = cleanWallet.padStart(64, "0");
     const data = `0x70a08231${paddedWallet}`;
 
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 3500);
+
     const response = await fetch("https://rpc.testnet.arc.network", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
+      signal: controller.signal,
       body: JSON.stringify({
         jsonrpc: "2.0",
         id: 1,
@@ -48,6 +52,7 @@ async function getERC20Balance(contractAddress: string, walletAddress: string): 
         ],
       }),
     });
+    clearTimeout(timeoutId);
 
     if (!response.ok) {
       console.warn(`RPC returned status ${response.status} for ${contractAddress}`);
@@ -75,7 +80,13 @@ async function getERC20Balance(contractAddress: string, walletAddress: string): 
 async function getWalletTxList(walletAddress: string): Promise<{ txCount: number; contractInteractions: number }> {
   try {
     const url = `https://testnet.arcscan.app/api?module=account&action=txlist&address=${walletAddress}`;
-    const response = await fetch(url);
+    
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 3500);
+
+    const response = await fetch(url, { signal: controller.signal });
+    clearTimeout(timeoutId);
+
     if (!response.ok) {
       console.warn(`Arcscan API returned status ${response.status}`);
       return { txCount: 0, contractInteractions: 0 };
